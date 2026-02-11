@@ -1,5 +1,7 @@
 // DOM
 const displayContainer = document.querySelector('#display-container');
+const filterBtn = document.querySelector('.filter-btn');
+const nav = document.querySelector('#category-navigation');
 
 // VARIABLES and ARRAYS
 let images = [];
@@ -14,21 +16,56 @@ export async function fetchImageData() {
     } catch(error) {
         console.error('Failed to fetch image data:', error);
     }
+    renderImages(images);
 }
 fetchImageData();
 
 export function filterImagesByCategory(category){
-    if(category == 'all'){
+    if (images.length === 0) return; 
+
+    if(category === 'all'){
         categorisedImages = images;
-    }else{
+    } else {
         categorisedImages = images.filter(image => image.category === category);
     }
+    renderImages(categorisedImages);
+    return categorisedImages;
 }
 
-//DOM
+export function renderImages(imageArray) {
+    if (!displayContainer) return;
+    displayContainer.innerHTML = ''; 
+
+    if (imageArray.length === 0) {
+        displayContainer.innerHTML = '<p class="error-msg">No images found matching your criteria.</p>';
+        return;
+    }
+
+    imageArray.forEach(img => {
+        const figure = document.createElement('figure');
+        figure.className = 'progressive-image';
+        figure.innerHTML = `
+            <img src="${img.thumb}" alt="${img.alt}" loading="lazy" data-full="${img.full}" class="thumbnail" tabindex="0" role="button">
+            <figcaption>${img.alt}</figcaption>
+        `;
+        displayContainer.appendChild(figure);
+    });
+}
 
 
 // EVENT LISTENERS
+if (nav) {
+    nav.addEventListener('click', (e) => {
+        const btn = e.target.closest('.filter-btn');
+        
+        if (btn) {
+            const selectedCategory = btn.dataset.category;
+            
+            filterImagesByCategory(selectedCategory);
+        }
+    });
+}
+
 
 //shows full image when image is pressed
 if (displayContainer) {

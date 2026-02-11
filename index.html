@@ -10,16 +10,15 @@
     <h1>Gallery</h1>
 
     <nav id="category-navigation">
-        <button id="all-btn" onclick="filterImagesByCategory('all')">all</button>
-        <button id="purple-btn" onclick="filterImagesByCategory('purple')">purple</button>
-        <button id="pink-btn" onclick="filterImagesByCategory('pink')">pink</button>
-        <button id="blue-btn" onclick="filterImagesByCategory('blue')">blue</button>
+        <button class="filter-btn" data-category="all">All</button>
+        <button class="filter-btn" data-category="fish">Fish</button>
+        <button class="filter-btn" data-category="insects">Insects</button>
+        <button class="filter-btn" data-category="birds">Birds</button>
+        <button class="filter-btn" data-category="mammals">Mammals</button>
     </nav>
 
     <main>
-        <div id="display-container">
-            <img id="1" src="assets/images/thumbnail.png" alt="thumbnail image" loading="lazy" data-full="assets/images/full.png" role="button">
-        </div>
+        <div id="display-container"></div>
     </main>
 
 </body>
