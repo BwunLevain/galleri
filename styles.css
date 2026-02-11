@@ -1,0 +1,19 @@
+/*Fonts*/
+h1 {
+    text-align: center;
+}
+
+/*Category navigtion area*/
+#category-navigation {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+/*Display Area*/
+#display-container {
+    text-align: center;
+}
+
+#display-container img {
+    max-height: 5rem;
+}

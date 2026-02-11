@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Gallery</h1>
+
+    <nav id="category-navigation">
+        <button id="all-btn" onclick="filterImagesByCategory('all')">all</button>
+        <button id="purple-btn" onclick="filterImagesByCategory('purple')">purple</button>
+        <button id="pink-btn" onclick="filterImagesByCategory('pink')">pink</button>
+        <button id="blue-btn" onclick="filterImagesByCategory('blue')">blue</button>
+    </nav>
+
+    <main>
+        <div id="display-container">
+            <img id="1" src="assets/images/thumbnail.png" alt="thumbnail image" loading="lazy" data-full="assets/images/full.png" role="button">
+        </div>
+    </main>
+
 </body>
+<script type="module" src="gallery.js"></script>
 </html>
