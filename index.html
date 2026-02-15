@@ -4,23 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>Stamp Gallery - Explore Stamp Collections</title>
 </head>
 <body>
-    <h1>Gallery</h1>
-
-    <nav id="category-navigation">
-        <button class="filter-btn" data-category="all">All</button>
-        <button class="filter-btn" data-category="fish">Fish</button>
-        <button class="filter-btn" data-category="insects">Insects</button>
-        <button class="filter-btn" data-category="birds">Birds</button>
-        <button class="filter-btn" data-category="mammals">Mammals</button>
-    </nav>
+    <header>
+        <h1>My Stamps</h1>
+    </header>
 
     <main>
-        <div id="display-container"></div>
+        <section id="search-section" aria-labelledby="search-heading">
+            <form id="search-container">
+                <h2 id="search-heading">Search by tag</h2>
+                <label for="tag-input" class="visually-hidden">Enter a tag to filter stamps</label>
+                <input type="text" name="search-tag" id="tag-input" placeholder="e.g., Cat">
+                <button type="submit" id="search-btn">Search</button>
+            </form>
+        </section>
+
+        <nav id="category-navigation" aria-label="Filter stamps by category">
+            <button class="filter-btn active" data-category="all" aria-pressed="true">All</button>
+            <button class="filter-btn" data-category="fish" aria-pressed="false">Fish</button>
+            <button class="filter-btn" data-category="insects" aria-pressed="false">Insects</button>
+            <button class="filter-btn" data-category="birds" aria-pressed="false">Birds</button>
+            <button class="filter-btn" data-category="mammals" aria-pressed="false">Mammals</button>
+        </nav>
+
+        <div id="display-container" role="region" aria-live="polite" aria-label="Stamp results">
+            </div>
     </main>
 
+    <script type="module" src="scripts/gallery.js"></script>
 </body>
-<script type="module" src="gallery.js"></script>
 </html>
